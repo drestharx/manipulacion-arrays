@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    
+    <div id="app"></div>
+
+    <script>
+        //lo que map hace realmente es transformar, creando un nuevo array con la transformacion realizada
+        //el array luego de la transformacion tendra el mismo numero de elementos
+        const letters = ['a', 'b', 'c'];
+
+        const newArray = letters.map(item => item + '++');
+
+        console.log(newArray);
+
+
+        const products = [
+            {title: 'Pizza', price: 120,},
+            {title: 'Burguer', price: 20,},
+        ];
+        const app = document.querySelector('#app');
+
+        const list = products.map(item => {
+            return `<li>${item.title} - ${item.price}</li>`;
+        });
+
+        app.innerHTML = list.join('');
+
+    </script>
+</body>
+</html>

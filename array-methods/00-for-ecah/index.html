@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Each</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <div id="checks">
+        <ul id="tasks-list">
+
+        </ul>
+    </div>
+
+
+    <script>
+        const products = [{title: 'Burguer', price: 121}, {title: 'Pizza', price: 20}];
+
+        const app = document.querySelector('#app');
+        products.forEach(product => {
+            app.innerHTML += `<li>${product.title}-${product.price}</li>`;
+        });
+
+
+        //RETO DE CURSO - LISTA DE TAREAS
+
+        const tasks = [
+            {task: 'tarea 1', done: true},
+            {task: 'tarea 2', done: false},
+            {task: 'tarea 3', done: false},
+            {task: 'tarea 4', done: true},
+        ];
+
+        const tasksDone = document.querySelector('#tasks-list');
+
+        tasks.forEach(element => {
+            if(element.done) {
+                tasksDone.innerHTML += `<label>${element.task}<input type="checkbox" checked></label></br>`;
+            } else {
+                tasksDone.innerHTML += `<label>${element.task}<input type="checkbox"></label></br>`;  
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find</title>
+</head>
+<body>
+    <script>
+        //a diferencia de filter que regresa un array de manera estricta
+        //find retornara el primer elemento que cumpla con la condicion
+        //retornara el elemento como tal y solo devolvera un elemento (el primero)
+        //si ninguno cumple la condicion el metodo devolvera undefined
+
+        const numbers = [1,30,49,29,10,13];
+
+        const rta = numbers.find(num => num === 30)
+
+        console.log(rta);
+
+        //find funciona muy bien con elementos que no se repiten
+        //po ejemplo en el siguiente ejemplo todos tienen un id unico
+
+        const products = [
+            {
+                name: "Pizza",
+                price: 12,
+                id: '🍕'
+            },
+            {
+                name: "Burger",
+                price: 23,
+                id: '🍔'
+            },
+            {
+                name: "Hot dog",
+                price: 34,
+                id: '🌭'
+            },
+            {
+                name: "Hot cakes",
+                price: 355,
+                id: '🥞'
+            },
+        ];
+
+        const hotDog = products.find(elem => elem.id === '🌭');
+        console.log(hotDog);
+        
+        // con findIndex devolvera en que posicion del array original se encuentra el elemento
+
+        const index = products.findIndex(elem => elem.id === '🌭');
+        console.log('index', index);
+        // findIndex al no encontrar el elemento que cumpla la condicion devolvera -1
+    </script>
+</body>
+</html>

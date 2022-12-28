@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every</title>
+</head>
+<body>
+    <script>
+        //en este caso todos los elementos deben cumplir con la condicion
+        //igualmente retorna un true o false
+        const numbers = [1,30,49,29,10,13];
+
+        const rta = numbers.every(elem => elem >= 40);
+        console.log(rta);
+
+        //reto: todos los miembros deben ser menores de 15 años
+
+        const team = [
+            {
+                name: "Nicolas",
+                age: 12,
+            },
+            {
+                name: "Andrea",
+                age: 8,
+            },
+            {
+                name: "Zulema",
+                age: 2,
+            },
+            {
+                name: "Santiago",
+                age: 18,
+            },
+        ];
+
+        const rta2 = team.every(elem => elem.age < 15);
+        console.log('Son menores de 15 años:',rta2)
+    </script>
+</body>
+</html>

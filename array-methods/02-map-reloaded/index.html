@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Reloaded</title>
+</head>
+<body>
+    
+
+    <script>
+        //podemos transformar un array a otro extrayendo solo una de sus propiedades
+        //es util cuando queremos trabajar solo con uno de esas propiedades de los elementos del array original
+    
+        const orders = [
+        {
+        customerName: "Nicolas",
+        total: 60,
+        delivered: true,
+        },
+        {
+        customerName: "Zulema",
+        total: 120,
+        delivered: false,
+        },
+        {
+        customerName: "Santiago",
+        total: 180,
+        delivered: true,
+        },
+        {
+        customerName: "Valentina",
+        total: 240,
+        delivered: true,
+        },
+        ];
+
+
+        const rta = orders.map(item => item.total);
+
+        //tambien podemos agregar lo que queramos a algun array con map
+        //el siguiente ejemplo creara una propiedad tax a cada elemento
+        //pero alterara el array original
+
+        const rta2 = orders.map(item => {
+            item.tax = 0.19;
+            return item;
+        });
+
+
+        //para no alterar el array original se puede hacer lo siguiente
+
+        const rta3 = orders.map(item => {
+            return{
+                ...item,
+                tax: 0.19,
+            }
+        });
+
+        //reto Platzi
+
+        const prueba = [
+        {
+            name: "Product 1",
+            price: 1000,
+            stock: 10
+        },
+        {
+            name: "Product 2",
+            price: 2000,
+            stock: 20
+        },
+        ];
+
+        function addNewAttr(array) {
+            return array.map(item => {
+            return {
+            ...item,
+            taxes: Math.trunc(item.price * 0.19),
+            }
+        });
+        }
+
+        const newArray = addNewAttr(prueba);
+        console.log(newArray);
+
+    </script>
+
+</body>
+</html>

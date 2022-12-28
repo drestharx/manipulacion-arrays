@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Some</title>
+</head>
+<body>
+    <script>
+        //Si alguno de los elementos del array cumple con la condicional retornando siempre un booleano
+        //solo retornara un false si ninguno de los elementos cumple con esa condicion
+
+        const numbers = [1,2,3,4];
+
+        //la condicion es si alguno de los elementos es par
+
+        const rta = numbers.some(item => item % 2 === 0);
+
+        console.log('rta',rta);
+
+        //trabajando some con objetos
+
+        const orders = [
+            {
+                customerName: "Nicolas",
+                total: 60,
+                delivered: true,
+            },
+            {
+                customerName: "Zulema",
+                total: 120,
+                delivered: false,
+            },
+            {
+                customerName: "Santiago",
+                total: 180,
+                delivered: true,
+            },
+            {
+                customerName: "Valentina",
+                total: 240,
+                delivered: true,
+            },
+        ];
+
+        //Se busca si alguna orden fue entregada
+
+        const rta2 = orders.some(order => order.delivered);
+        console.log('rta2', rta2);
+
+        // UTILIZANDO UNA LIBRERIA
+
+        const dates = [
+            //Cada objeto muestra un inicio de cita (año, mes, dia) seguido de la hora
+            {
+                startDate: new Date(2021, 1, 1, 10),
+                endDate: new Date(2021, 1, 1, 11),
+                title: "Cita de trabajo",
+            },
+            {
+                startDate: new Date(2021, 1, 1, 15),
+                endDate: new Date(2021, 1, 1, 15, 30),
+                title: "Cita con mi jefe",
+            },
+            {
+                startDate: new Date(2021, 1, 1, 20),
+                endDate: new Date(2021, 1, 1, 21),
+                title: "Cena",
+            },
+        ];
+
+        //se busca con some se verifique si la siguiente cita puede ser agendada
+        const newAppointment = {
+            startDate: new Date(2021, 1, 1, 8),
+            endDate: new Date(2021, 1, 1, 9, 30),
+        };
+
+        const areIntervalsOverlapping = require('date-fns/areIntervalsOverlapping');
+
+        const isOverlap = (newDate) => {
+            return dates.some(date => {
+                //la siguiente funcion nos creara un valor booleano comparado con cada fecha si se sobrepone o no
+                //y somo nos indicara si almenos uno se sobrepone
+                return areIntervalsOverlapping(
+                    {start: date.startDate, end: endDate},
+                    {start: newDate.startDate, end: newDate.endDate},
+                );
+            });
+        } 
+
+        console.log('last rts',isOverlap(newAppointment));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        //filter, filtrara los elementos de un array en base a una condicion
+        //creando un nuevo array, dejando el array original inmutable
+        //crea un nuevo array con los elementos que cumplieron con la condicion original
+
+        const words = ['spray', 'limit', 'elite', 'exuberant'];
+
+        const filteredWords = words.filter(word => {
+            return word.length <= 5;
+        });
+
+        console.log('Ejemplo 1' ,filteredWords);
+        
+        const newArray = words.filter(item => item.length >= 6);
+        
+        console.log('Ejemplo 2' ,newArray);
+
+        //Ejemplo 3
+        const orders = [
+            {
+                customerName: "Nicolas",
+                total: 60,
+                delivered: true,
+            },
+            {
+                customerName: "Zulema",
+                total: 120,
+                delivered: false,
+            },
+            {
+                customerName: "Santiago",
+                total: 180,
+                delivered: true,
+            },
+            {
+                customerName: "Valentina",
+                total: 240,
+                delivered: true,
+            },
+            ];
+        
+        // se busca filtrar todas las ordenes terminadas
+        
+        const deliveredOrders = orders.filter(item => {
+            return item.delivered;
+        });
+        
+        // se busca filtrar todas las ordenes terminadas y que el total sea mayor a 100
+        const rpt = orders.filter(item => {
+            return item.delivered && item.total > 100;
+        });
+
+        //Se busca hacer un buscador a partir de un query 'Nico', 'Vale'
+
+        const search = (query) => {
+            return orders.filter(item => {
+                return item.customerName.includes(query);
+            });
+        };
+
+        console.log(search('l'));
+    </script>
+</body>
+</html>
