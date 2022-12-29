@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concat</title>
+</head>
+<body>
+    <script>
+        //Sirve para unir 2 arrays, generando un nuevo array
+        const elements1 = [1,1,2,2];
+        const elements2 = [3,3,4,4];
+
+        const newArray = [];
+        for(i = 0; i <= elements1.length; i++) {
+            if(i === elements1.length){
+                for(k = 0; k < elements2.length; k++){
+                    newArray.push(elements2[k]);
+                }
+            } else {
+                newArray.push(elements1[i]);
+            }
+        }
+        console.log('for: ',newArray);
+
+        //otra forma de hacerlo es utilizando el spread operator
+
+        const element = [...elements1];
+        for(m = 0; m < elements2.length; m++) {
+            element.push(elements2[m]);
+        }
+        console.log('for spread:', element);
+
+        //utilizando el metodo concat
+
+        const rta = elements1.concat(elements2);
+        console.log('concat:', rta);
+
+        //otra forma aun mas directa de juntar 2 arrays seria con el spread operator
+        const rta2 = [...elements1, ...elements2];
+        console.log('only spread:', rta2);
+
+    </script>
+</body>
+</html>
