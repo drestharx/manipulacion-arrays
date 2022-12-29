@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+</head>
+<body>
+    <script>
+        const elements = ['Fire', 'Water', 'Air'];
+        //Si queremos unir un array de strings con for seria de la siguiente manera
+
+        let rtaFor = '';
+        const separador = '--'
+        for(let index = 0; index < elements.length; index++) {
+            const element = elements[index];
+            if(index === elements.length - 1) {
+                rtaFor = rtaFor + element;
+            } else {
+                rtaFor = rtaFor + element + separador;
+            }
+        }
+        console.log('for: ' ,rtaFor);
+
+        // nos sirve para unir un array con un string en especifico
+        //uniremos el array con el string 
+
+        const rta = elements.join('--');
+        console.log('rta join: ',rta);
+
+        // SPLIT
+        //podemos convertir un string en un array indicandole el patron al metodo split
+        //en este caso cada espacio un elemento de un array
+
+        const title = 'Manipulacion de arrays';
+
+        const array = title.split(' ');
+        
+        //entonces podemos generar un URL combinando estos 2 metodos
+
+        const url = title.toLowerCase().split(' ').join('-');
+        console.log('url', url);
+
+
+    </script>
+</body>
+</html>
