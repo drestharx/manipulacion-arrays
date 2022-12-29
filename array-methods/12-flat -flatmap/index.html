@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flat y FlatMap</title>
+</head>
+<body>
+    <script>
+        // nos sirven para manipular arrays que tengan otros arrays por dentro
+        //y asi sucesivamente, sirve para llevar todos esos arrays al primer nivel del array
+        //(aplanar el array)
+
+        //uno de los casos de uso puede ser una matriz
+        const matriz = [
+            [1,2,3],
+            [4,5,6,[1,2,3,[4,5,6]],],
+            [7,8,9]
+        ];
+        //con for se haria de la siguiente manera
+
+        const newArray = [];
+        for(let i = 0; i < matriz.length; i++){
+            for(let j = 0; j < matriz[i].length; j++){
+                newArray.push(matriz[i][j]);
+            }
+        }
+        console.log('for', newArray);
+        //Sin embargo solo funciona cuando tenemos arrays bidimensionales
+        //para arrays de 3 dimensiones debemos crear mas ciclos for
+        
+        //UTILIZANDO FLAT
+        //se debe indicar que nivel de profundidad se quiere aplanar
+        
+        const rta = matriz.flat(3);
+        console.log('flat:', rta);
+    </script>
+</body>
+</html>
