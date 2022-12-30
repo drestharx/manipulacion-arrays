@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort</title>
+</head>
+<body>
+    <script>
+        //es un metodo mutable que al ejecutarlo cambiara el orden del array original
+
+        const months = ["March", "Jan", "Feb", "Dec"];
+
+        const numbers = [1, 30, 4, 21, 100000];
+
+        const specialWords = [
+            "réservé",
+            "premier",
+            "communiqué",
+            "café",
+            "adieu",
+            "éclair",
+            "banana",
+        ];
+
+        const orders = [
+            {
+                customerName: "Nicolas",
+                total: 600,
+                delivered: true,
+            },
+            {
+                customerName: "Zulema",
+                total: 120,
+                delivered: false,
+            },
+            {
+                customerName: "Santiago",
+                total: 1840,
+                delivered: true,
+            },
+            {
+                customerName: "Valentina",
+                total: 240,
+                delivered: true,
+            },
+        ];
+
+        //arrays ordenados por defecto
+        months.sort();
+        console.log(months); // lo ordeno de acuerdo al valor de cada letra en la tabla ASCII
+                            //Para ordenarlo por calendario hay q ponerle un peso a cada mes
+
+        //Con el metodo sort aplicado a numeros bastara con una resta
+        numbers.sort((a,b) => a - b);
+        console.log(numbers); // de igual manera lo organizao de acuerdo a la tabla ASCII, pero con la resta lo organizo de menor a mayor
+
+        //Ahora con los caracteres especiales
+        specialWords.sort();
+        console.log(specialWords);// de igual manera esta ordenado en base a ASCII
+
+        //para objetos y buscando ordenar de acuerdo al total de la orden
+        orders.sort((a,b) => b.total - a.total);
+        console.log(orders)
+    </script>
+</body>
+</html>
