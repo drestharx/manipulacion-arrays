@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutable</title>
+</head>
+<body>
+    <script>
+        const products = [
+        { title: 'Pizza', price: 121, id: '🍕' },
+        { title: 'Burger', price: 121, id: '🍔' },
+        { title: 'Hot cakes', price: 121, id: '🥞' },
+        ];
+
+        const myProducts = [];
+
+        console.log("products", products);
+        console.log("myProducts", myProducts);
+        console.log("-".repeat(10));
+        
+        //trabajando con metodos mutables
+        //Se desea una busqueda de un elemento en especifico
+
+        const findProductIndex = products.findIndex(product => product.id === '🍔');
+        const product2 = [];
+        if(findProductIndex !== -1) {
+            myProducts.push(products[findProductIndex]); //el metodo push es mutable, muta al array original
+            //una vez agregado el elemento, se desea eliminarlo de products
+            
+            //la solucion mutando el array original
+            //products.splice(findProductIndex, 1); //splice recibe 2 parametros(el primero la ubicacion, y el segundo cuantos elementos quiero eliminar)
+            
+            //la solucion NO mutando el array original
+            products2 = products.filter(product => product !== myProducts[0]);
+        }
+        console.log('product2', products2); // metodo que no modifica el array original
+        console.log("products", products);
+        console.log("myProducts", myProducts);
+        console.log("-".repeat(10));
+
+        // --------------------------------------------------------------------------------------------------
+
+        // SE DESEA REALIZAR UNA ACTUALIZACION - UPDATE
+        //utilizaremos metodos mutables
+        const productsV2 = [
+        { title: 'Pizza', price: 121, id: '🍕' },
+        { title: 'Burger', price: 121, id: '🍔' },
+        { title: 'Hot cakes', price: 121, id: '🥞' },
+        ];
+        const update = {
+            title: 'Hot cakes',
+            id: '🥞',
+            changes: {
+                price: 200,
+                description: 'Delicious',
+            }
+        };
+        //Se desea cambiar de productV2 el objeto con id '🥞'
+        const productFindIndex = productsV2.findIndex(product => product.id === update.id);
+        productsV2[productFindIndex] = {
+            ...productsV2[productFindIndex],
+            ...update.changes,
+        }
+        console.log('ultimo',productsV2);
+
+
+    </script>
+</body>
+</html>
